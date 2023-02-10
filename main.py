@@ -21,7 +21,6 @@ def welcome():
 
 
 def move():
-    check_win()
     num = 0
     while True:
         num += 1
@@ -40,7 +39,8 @@ def move():
         else:
             game_field[x][y] = 'O'
 
-        check_win()
+        if check_win():
+            break
 
         if num == 9:
             print('Ничья!')
@@ -97,17 +97,18 @@ def check_win():
             symbols.append(game_field[c[0]][c[1]])
 
         if symbols == ['X', 'X', 'X']:
+            show_field()
             print('Выиграли Крестики!')
             return True
         if symbols == ['O', 'O', 'O']:
+            show_field()
             print('Выиграли Нолики!')
             return True
-        return False
+    return False
 
 
 def start_game():
     print('\nЗапускаю игру:')
-    check_win()
     move()
 
 
