@@ -1,6 +1,8 @@
+# Создание игрового поля
 game_field = [[' '] * 3 for i in range(3)]
 
 
+# Приветствие и старт
 def welcome():
     print('---------------------------')
     print('  Добро пожаловать в игру')
@@ -20,6 +22,7 @@ def welcome():
         print('\nЗакрытие программы')
 
 
+# Очередность ходов      
 def move():
     num = 0
     while True:
@@ -47,6 +50,7 @@ def move():
             break
 
 
+# Показ игрового поля
 def show_field():
     print()
     print('   | 0 | 1 | 2 | ')
@@ -58,6 +62,7 @@ def show_field():
     print()
 
 
+# Ход игроков
 def ask():
     while True:
         cords = input('     Ваш ход: ').split()
@@ -85,6 +90,7 @@ def ask():
         return x, y
 
 
+# Проверка на победу
 def check_win():
     win_pos = (((0, 0), (0, 1), (0, 2)), ((1, 0), (1, 1), (1, 2)), ((2, 0), (2, 1), (2, 2)),
                ((0, 2), (1, 1), (2, 0)), ((0, 0), (1, 1), (2, 2)), ((0, 0), (1, 0), (2, 0)),
@@ -107,9 +113,11 @@ def check_win():
     return False
 
 
+# В случае запуска, продолжение игры
 def start_game():
     print('\nЗапускаю игру:')
     move()
 
 
+# Общий запуск кода
 welcome()
